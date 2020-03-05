@@ -33,23 +33,24 @@ void q_s(int a[],int l,int u)
     }
 }
 
-int conqure(int a[],int l,int u)
+int conqure(int a[],int start,int end)
 {
     int pivot,i,j,t;
-    pivot=a[u];
-    i=l-1;
-    for(j=l;j<=u-1;j++)
+    pivot=a[end];
+    i=start;
+    for(j=start;j<=end-1;j++)
     {
         if(a[j]<pivot)
         {
-            i++;
+            
             t=a[j];
             a[j]=a[i];      /*swap*/
             a[i]=t;
+            i++;
         }
     }
-     t=a[i+1];
-     a[i+1]=a[u];
-     a[u]=t;
-return (i+1);
+     t=a[i];
+     a[i]=a[end];
+     a[end]=t;
+return i;
 }
